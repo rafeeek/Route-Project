@@ -1,0 +1,72 @@
+﻿@model B_Layer.Models.EmployeeVM
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Layout/M_Layout.cshtml";
+}
+
+
+
+
+
+<center>
+    <h1 class="mb-5">Employee Details</h1>
+
+
+
+    <div class="w-50 mx-auto py-5 text-left">
+
+        <form class="form-group">
+
+            <label>Employee Name</label>
+            <input class="form-control" asp-for="EmployeeName" disabled />
+            <span asp-validation-for="EmployeeName" class="text-danger"></span>
+
+            <br />
+
+
+            <label>Salary</label>
+            <input class="form-control" asp-for="Salary" disabled />
+            <span asp-validation-for="Salary" class="text-danger"></span>
+            <br />
+
+
+            <label>Notes</label>
+            <textarea asp-for="Notes" class="form-control" disabled></textarea>
+            <span asp-validation-for="Notes" class="text-danger"></span>
+            <br />
+
+
+            <label>HireDate</label>
+            <input type="date" asp-for="HireDate" class="form-control" disabled>
+            <span asp-validation-for="HireDate" class="text-danger"></span>
+
+            <br />
+            <label>DepartmentId</label>
+            <select asp-for="DepartmentId" class="form-control" asp-items="(SelectList)ViewBag.AuthorList">
+            </select>
+            <span asp-validation-for="DepartmentId" class="text-danger"></span>
+
+            <br />
+            <div class="form-check">
+                <input class="form-check-input" asp-for="IsActive" disabled type="checkbox" id="gridCheck">
+                <label class="form-check-label">IsActive</label>
+            </div>
+
+            <br />
+            <br />
+
+        </form>
+        <a asp-controller="Employee" asp-action="Update" asp-route-id="@Model.Id"><button class="btn btn-primary">Update</button></a>
+    </div>
+
+</center>
+
+@section Validation{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+
+
+

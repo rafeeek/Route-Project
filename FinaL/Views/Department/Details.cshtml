@@ -1,0 +1,32 @@
+﻿@model B_Layer.Models.DepartmentVM
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Layout/M_Layout.cshtml";
+}
+
+<center>
+    <h1 class="mb-5">Department Details</h1>
+
+    <div class="w-50 mx-auto py-5 text-left">
+        <form class="form-group">
+
+            <label>Department Name</label>
+            <input disabled class="form-control" asp-for="DepartmentName" />
+
+            <br />
+            <br />
+
+            <label>Department Code</label>
+            <input disabled class="form-control" asp-for="DepartmentCode" />
+
+            <br />
+            <br />
+
+        </form>
+        <a asp-controller="Department" asp-action="Update" asp-route-id="@Model.Id"><button class="btn btn-primary">Update</button></a>
+        <a asp-controller="Department" asp-action="Delete" asp-route-id="@Model.Id"><button class="btn btn-danger">Delete</button></a>
+    </div>
+
+</center>
+
